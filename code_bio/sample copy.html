@@ -1,0 +1,514 @@
+<html>
+<head>
+<title>Migz Estrella</title>
+<link href="https://fonts.googleapis.com/css?family=Eczar:400,700|Montserrat:400,700|Poppins:300,400|Roboto+Mono|Roboto:400,500,900|Spectral" rel="stylesheet">
+
+<script async="" src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
+
+<link rel="stylesheet" href="code.css">
+<link href="code2.css" rel="stylesheet">
+
+<script async="" src="https://www.google-analytics.com/analytics.js" charset="utf8"></script>
+<script type="text/javascript" charset="utf-8" async="" src="/static/js/3.85cb117bfa644820a0f9.js"></script>
+
+<style type="text/css">
+.typed-text[data-v-d3f0c5e2],
+.typed-text+span[data-v-d3f0c5e2] {
+  /*transition: all .2s ease-in-out;*/
+  color: rgba(0, 0, 0, .3)
+}
+@media screen and (max-width:660px) {
+.container-mason[data-v-d3f0c5e2] {
+    display: block;
+}
+.container-mason-row[data-v-d3f0c5e2] {
+    width: 100%;
+    max-width: 100%;
+}
+.container-mason-row[data-v-d3f0c5e2]:first-of-type {
+    margin-right: 0;
+}
+.mobile-scroll .websitecontainer .flex[data-v-d3f0c5e2] {
+    -ms-flex-flow: wrap;
+        flex-flow: wrap;
+}
+}
+.searchbar-input[data-v-d3f0c5e2] {
+  outline: none;
+  border: none;
+  margin-top: 10px;
+}
+.domain-actions[data-v-d3f0c5e2] {
+  display: none;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: end;
+      justify-content: flex-end;
+  padding-right: 30px;
+  min-width: 90px;
+}
+.container__typed .domain-actions[data-v-d3f0c5e2] {
+  display: -ms-flexbox;
+  display: flex;
+}
+.container__typed .searchbar[data-v-d3f0c5e2] {
+  margin-top: 20px;
+  position: relative;
+  background: #fff;
+  border-radius: 4px;
+  border:1px solid #eeefef;
+  z-index: 999
+}
+.container__typed .searchbar-input[data-v-d3f0c5e2] {
+  width: 100%;
+  padding: 30px;
+  font-weight: 400;
+  border: none;
+  font-size: 15px;
+  position: relative;
+  z-index: 5;
+  border-radius: 4px 0 0 4px;
+  background: transparent;
+  text-align: left;
+  line-height: normal;
+  line-height: initial;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", "Helvetica Neue", sans-serif;
+  margin-top: 0
+}
+.container__typed .fixed.searchbar[data-v-d3f0c5e2] {
+  position: fixed;
+}
+@media (max-width: 520px) {
+  .container__typed .searchbar-input[data-v-d3f0c5e2] {
+    padding: 20px
+  }
+}
+@media (max-width: 520px) {
+  .container__typed .searchbar[data-v-d3f0c5e2] {
+    margin-top: 0
+  }
+}
+.searchbar-width[data-v-d3f0c5e2] {
+  max-width: 780px;
+  width: 100%;
+  position: relative;
+  margin: auto;
+}
+.fixed[data-v-d3f0c5e2] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateZ(0);
+  box-shadow: 0 0 14px 0 rgba(6, 16, 39, .1), 0 0 6px 0 rgba(0, 0, 0, .05);
+}
+.fixed .searchbar[data-v-d3f0c5e2] {
+  position: fixed;
+}
+.fixed .searchbar-input[data-v-d3f0c5e2] {
+  padding: 20px 12px;
+}
+.fixed .domain-actions[data-v-d3f0c5e2] {
+  padding-right: 12px
+}
+.container__typed .fixed[data-v-d3f0c5e2] {
+  margin-top: 0;
+}
+.fixed[data-v-d3f0c5e2]:after {
+  content: "";
+  width: 100%;
+  height: 78px;
+  background: pink;
+}
+.fixed + .fakeheight[data-v-d3f0c5e2] {
+  height: 98px;
+}
+/*remove animations for mobile*/
+.faketext[data-v-d3f0c5e2] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-left: 30px;
+  padding-top: 30px;
+  pointer-events: none;
+  display: none
+}
+@media screen and (max-width: 520px) {
+  .faketext[data-v-d3f0c5e2] {
+    padding-left: 20px;
+    padding-top: 20px
+  }
+}
+.faketext span[data-v-d3f0c5e2] {
+  color: rgba(0, 0, 0, .3);
+  font-size: 15px;
+}
+.domain-state[data-v-d3f0c5e2] {
+  height: 28px;
+  min-width: 70px;
+  text-align: right;
+  margin-left: auto;
+  display: none;
+  position: relative;
+}
+.domain-state-value[data-v-d3f0c5e2] {
+  transition: all .15s ease-in-out;
+  font-size: 15px;
+  line-height: 28px;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0;
+  white-space: nowrap;
+  transform: scale(.9)
+}
+.searchbar__good .domain-state-value[data-v-d3f0c5e2] {
+  color: #3FC55F;
+}
+.searchbar__bad .domain-state-value[data-v-d3f0c5e2] {
+  color: #f04d5e
+}
+.searchbar__good .domain-state-value[data-v-d3f0c5e2],
+.searchbar__bad .domain-state-value[data-v-d3f0c5e2] {
+  opacity: 1;
+  transform: scale(1)
+}
+.searchbar__dotted .popup-trigger[data-v-d3f0c5e2],
+.searchbar__loading .popup-trigger[data-v-d3f0c5e2],
+.searchbar__good .popup-trigger[data-v-d3f0c5e2],
+.searchbar__bad .popup-trigger[data-v-d3f0c5e2] {
+  display: none;
+}
+.searchbar__dotted .faketext[data-v-d3f0c5e2],
+.searchbar__loading .faketext[data-v-d3f0c5e2],
+.searchbar__good .faketext[data-v-d3f0c5e2],
+.searchbar__bad .faketext[data-v-d3f0c5e2] {
+  display: block;
+}
+.searchbar__dotted .domain-state[data-v-d3f0c5e2],
+.searchbar__loading .domain-state[data-v-d3f0c5e2],
+.searchbar__good .domain-state[data-v-d3f0c5e2],
+.searchbar__bad .domain-state[data-v-d3f0c5e2] {
+  display: block;
+}
+.searchbar__bad .searchbar-input[data-v-d3f0c5e2] {
+  color: #f04d5e
+}
+.searchbar__good .searchbar-input[data-v-d3f0c5e2] {
+  color: #3FC55F;
+}
+.popup-trigger[data-v-d3f0c5e2] {
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  opacity: .44;
+  cursor: pointer
+}
+.popup-trigger[data-v-d3f0c5e2]:hover {
+  opacity: 1
+}
+.container__typed[data-v-d3f0c5e2] {
+  height: auto;
+  height: initial;
+  min-height: 0;
+  min-height: initial;
+  padding-bottom: 30px;
+}
+.container__typed h1.h1[data-v-d3f0c5e2],
+  .container__typed .scroll[data-v-d3f0c5e2] {
+  display: none;
+}
+@media (max-width: 520px) {
+  .container__typed[data-v-d3f0c5e2] {
+    padding-bottom: 0px
+  }
+}
+.mobile-scroll .footer[data-v-d3f0c5e2] {
+  margin-top: 0px
+}
+@media (max-width: 520px) {
+  .mobile-scroll .footer[data-v-d3f0c5e2] {
+    margin-top: 25px
+  }
+}
+.container__typed + .mobile-scroll[data-v-d3f0c5e2] {}
+@media (max-width: 520px) {
+  .container__typed + .mobile-scroll[data-v-d3f0c5e2] {
+    height: calc(100vh - 133px);
+    overflow-y: scroll;
+    padding-top: 20px;
+    -webkit-overflow-scrolling: touch
+  }
+}
+@media (max-width: 520px) {
+.fixed[data-v-d3f0c5e2] {
+    position: relative;
+}
+}
+body[data-v-d3f0c5e2] {
+  background: pink !important;
+}
+</style>
+
+<style type="text/css">
+.popup[data-v-3db217f0] {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 12px;
+	background: rgba(0, 0, 0, .4);
+	z-index: 9999999999999;
+	opacity: 1;
+	display: none;
+	-ms-flex-pack: center;
+	    justify-content: center;
+	-ms-flex-align: center;
+	    align-items: center;
+	animation-duration: .15s;
+	animation-name: fadein;
+}
+.popup__active[data-v-3db217f0] {
+    display: -ms-flexbox;
+	display: flex;
+}
+.popup-content-paragraph[data-v-3db217f0] {
+	color: #8e8e8e;
+	font-size: 14px;
+	margin-top: 4px;
+}
+@keyframes fadein{
+0%{opacity:0;
+}
+}
+.popup-content[data-v-3db217f0] {
+	background: #f7f9fa;
+	max-width: 335px;
+	width: 100%;
+	padding: 24px;
+	border-radius: 6px;
+	opacity: 0;
+	margin: auto;
+	max-height: calc(100vh - 24px);
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+	transform:scale(1);
+	animation-duration: .15s;
+	animation-name: popIn;
+	animation-delay: .14s;
+	animation-fill-mode: forwards;
+}
+@keyframes popIn {
+0% {
+		opacity:0;
+		transform:scale(.7)
+}
+100% {
+		opacity: 1;
+}
+}
+.popup-content-list[data-v-3db217f0] {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.popup-content-list-item[data-v-3db217f0] {
+	margin-top: 4px;
+	border-radius: 4px;
+	height: 37px;
+	padding: 0 8px;
+	line-height: 37px;
+  color: #8e8e8e;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, .0);
+	cursor: pointer;
+  font-size: 15px;
+}
+.popup-content-list-item[data-v-3db217f0]:hover,
+.popup-content-list-item__selected[data-v-3db217f0] {
+	box-shadow: 0 1px 4px rgba(0, 0, 0, .04);
+	background-color: white;
+}
+.popup-content-list-item__selected[data-v-3db217f0] {
+  color: #061027;
+}
+.popup-content-list-item__selected[data-v-3db217f0] {
+	/* background-image: url('./images/check.svg'); */
+}
+.popup-content-cta[data-v-3db217f0] {
+	text-align: right;
+}
+.popup-trigger[data-v-3db217f0] {
+	opacity: .2;
+	cursor: pointer;
+    margin-left: 8px;
+	transition: opacity .15s ease-in-out;
+    display: inline-block;
+}
+.arrow-link[data-v-3db217f0]:after {
+  display: none;
+}
+</style>
+
+<style type="text/css">
+.vc-saturation,
+.vc-saturation--white,
+.vc-saturation--black {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.vc-saturation--white {
+  background: linear-gradient(to right, #fff, rgba(255,255,255,0));
+}
+.vc-saturation--black {
+  background: linear-gradient(to top, #000, rgba(0,0,0,0));
+}
+.vc-saturation-pointer {
+  cursor: pointer;
+  position: absolute;
+}
+.vc-saturation-circle {
+  cursor: head;
+  width: 4px;
+  height: 4px;
+  box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3), 0 0 1px 2px rgba(0,0,0,.4);
+  border-radius: 50%;
+  transform: translate(-2px, -2px);
+}
+</style>
+
+<style type="text/css">
+.vc-hue {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  border-radius: 2px;
+}
+.vc-hue--horizontal {
+  background: linear-gradient(to right, #f00 0%, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+}
+.vc-hue--vertical {
+  background: linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+}
+.vc-hue-container {
+  cursor: pointer;
+  margin: 0 2px;
+  position: relative;
+  height: 100%;
+}
+.vc-hue-pointer {
+  z-index: 2;
+  position: absolute;
+}
+.vc-hue-picker {
+  cursor: pointer;
+  margin-top: 1px;
+  width: 4px;
+  border-radius: 1px;
+  height: 8px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, .6);
+  background: #fff;
+  transform: translateX(-2px) ;
+}
+</style>
+
+<style id="c4eb02fd-c7c4-daad-1315-38767d45c1be">.custom-color-c4eb02fd-c7c4-daad-1315-38767d45c1be { background-color: #01D8FD }
+.custom-color-c4eb02fd-c7c4-daad-1315-38767d45c1be .primary-color { color: #FFFFFF }
+.custom-color-c4eb02fd-c7c4-daad-1315-38767d45c1be .secondary-color { color: #D7F9FF }
+.custom-color-c4eb02fd-c7c4-daad-1315-38767d45c1be .accent-bg { background-color: #297AFB }
+.custom-color-c4eb02fd-c7c4-daad-1315-38767d45c1be .secondary-bg { background-color: #2898FB }
+.custom-color-c4eb02fd-c7c4-daad-1315-38767d45c1be .svg-fill { fill: #FFFFFF }</style>
+
+
+
+</head>
+<body class>
+  <div id="app">
+    <div class="">
+      <div data-v-4c674db3="" id="user-site">
+        <!-- TOP PART -->
+        <div data-v-4c674db3="" class="template-container">
+          <div data-v-4c674db3="" class="gray-gradient font-modern">
+
+
+            <!-- HEADER -->
+            <header class="header">
+              <div class="container-lrg">
+                <div class="flex col-12 spread">
+                  <a href="/" class="logo primary-color logo">migzestrella</a> 
+                  <a href="#main-menu" id="menu" class="menu-toggle">
+                    <b class="nav-link mr0 secondary-color">☰</b>
+                  </a> 
+
+                  <nav id="main-menu" role="navigation" class="main-menu">
+                    <a href="#" id="main-menu-close" class="menu-close"><span class="bold">✕</span></a>
+                    <a href="http://hello.com" class="nav-link secondary-color">blog</a> 
+                  </nav>
+                </div>
+              </div>
+            </header> 
+
+
+            <section class="section">
+
+              <!-- TOP PART -->
+              <div class="container mb40">
+                <div class="col-12 text-center">
+                  <h1 class="heading-lrg primary-color">Hello World</h1> 
+                  <h2 class="subheading secondary-color mt20">Coding and stuff</h2> 
+
+                  <!-- LINKS -->
+                  <div class="mt40"><a href="http://hello.com" target="_blank" class="button mobile-text-center mt10 mr10 mobile-text-center accent-bg primary-color"> 
+                    <span> link1 </span></a>
+                    <a href="http://hello.com" target="_blank" class="button mobile-text-center mt10"> 
+                      <span> link2 </span>
+                    </a>
+                  </div>
+                </div>
+              </div> 
+
+              <!-- CODE PART -->
+              <div class="container mt75"><div class="col-12"><div class="codeblock"><pre><code class="hljs python"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WhoAmI</span>:</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">        self.name = <span class="hljs-string">'Migz Estrella'</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">        self.educ_bg = <span class="hljs-string">'University of the Philippines, Diliman'</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">        self.work_exp = [<span class="hljs-string">'Nestle, Inc.'</span>, <span class="hljs-string">'Trend Micro, Inc.'</span>]</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_years_exp</span><span class="hljs-params">(self, year_now)</span>:</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">        <span class="hljs-keyword">return</span> year_now - <span class="hljs-number">2013</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="10"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">skill_proficiency</span><span class="hljs-params">(self, skill_set)</span>:</span></div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="11"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">        levels = [<span class="hljs-string">'Strong'</span>, <span class="hljs-string">'Knowledgeable'</span>, <span class="hljs-string">'Learning'</span>]</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="12"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">        <span class="hljs-keyword">if</span> skill_set == <span class="hljs-string">'python'</span>:</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="13"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">            <span class="hljs-keyword">return</span> levels[<span class="hljs-number">0</span>]</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="14"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">        <span class="hljs-keyword">if</span> skill_set == <span class="hljs-string">'java'</span>:</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="15"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">            <span class="hljs-keyword">return</span> levels[<span class="hljs-number">0</span>]</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="16"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">        <span class="hljs-keyword">if</span> skill_set == <span class="hljs-string">'aws'</span>:</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="17"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">            <span class="hljs-keyword">return</span> levels[<span class="hljs-number">1</span>]</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="18"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">        <span class="hljs-keyword">else</span>:</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="19"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">            <span class="hljs-keyword">return</span> levels[<span class="hljs-number">2</span>]</div></td></tr></tbody></table></code></pre></div></div></div>
+
+            </section>
+
+          </div> 
+
+        </div>
+
+        <div data-v-4c674db3="" class="template-container">
+          <footer data-v-4c674db3="" id="footer-1" class="section text-center gray-flat font-modern" activepage="Landing" sitemeta="[object Object]">
+            <div class="container col-12">
+              <nav class="mb50">
+                <a target="_blank" href="http://link.com" class="nav-link secondary-color">link1</a>
+                <a target="_blank" href="http://link2.com" class="nav-link secondary-color">link2</a>
+                <a target="_blank" href="http://link3.com" class="nav-link secondary-color">link3</a>
+              </nav> 
+
+              <div>
+                <a href="mailto:migz" class="socialicons accent-bg email"></a>
+                <a href="https://github.com/ad" target="_blank" class="socialicons accent-bg github"></a>
+                <a href="https://linkedin.com/migz" target="_blank" class="socialicons accent-bg linkedin"></a>
+              </div> 
+
+              <div class="mt50">
+                <span class="span secondary-color">©</span> 
+                <span class="span secondary-color">since day one</span>
+              </div>
+            </div>
+          </footer> 
+
+          </div>
+        </div>
+    </div>
+		
+	</div>
+</body>
+</html>
